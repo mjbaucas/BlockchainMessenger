@@ -78,6 +78,7 @@
   margin: auto;
   text-align: left;
   background-color: lightgrey;
+  min-height: 300px;
 }
 
 .Home-selected-friend {
@@ -156,6 +157,42 @@
 
 .Message-send-button {
   margin: 0px 0px 0px 10px;
+  padding: 12px;
+  border: 2px solid black;
+  font-size: medium;
+  font-weight: 700;
+  border-radius: 4px;
+  width: 15%;
+}
+
+.Login-container {
+  border: 3px solid #282c34;
+  padding: 15px 20px;
+  margin: auto;
+  text-align: center;
+  width: 90%;  
+}
+
+.Login-input{
+  padding: 12px 10px;
+  margin: 0px  0px 10px 0px;
+  border: 3px solid cornflowerblue;
+  border-radius: 4px;
+  overflow: hidden;
+  flex: 2;
+  font-size: medium;
+}
+
+.Login-header {
+  margin: 5px;
+}
+
+.Login-label {
+  font-size: large;
+}
+
+.Login-button {
+  margin: 10px 0px 0px 10px;
   padding: 12px;
   border: 2px solid black;
   font-size: medium;

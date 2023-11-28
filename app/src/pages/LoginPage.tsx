@@ -24,29 +24,31 @@ const LoginPage: React.FC = () => {
       };
 
   return (
-    <div>
-        <h3>You are not logged in. Please login.</h3>
+    <div className="Login-container">
+        <h2 className="Login-header">You are not logged in. Please login.</h2>
         <div>
         <form>
         <div>
-            <label>Username: </label>
+            <label className="Login-label">Username: </label>
             <input
             type="text"
+            className="Login-input"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             id="username"
             />
         </div>
         <div>
-            <label>Password: </label>
+            <label className="Login-label">Password: </label>
             <input
             type="password"
+            className="Login-input"
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
             id="password"
             />
         </div>
-        <button type="button" onClick={() => loginUser()}>
+        <button className="Login-button" type="button" onClick={() => loginUser()}>
             Login
         </button>
         </form>
