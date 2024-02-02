@@ -40,7 +40,7 @@
 .Home-header {
   background-color: cornflowerblue;
   border: 3px solid #282c34;
-  padding: 15px 20px;
+  padding: 0px 20px;
   margin: auto;
   text-align: center;
   width: 90%;
@@ -48,7 +48,7 @@
 
 .Home-user-container {
   border: 3px solid #282c34;
-  padding: 15px 20px;
+  padding: 5px 20px;
   margin: auto;
   text-align: center;
   width: 90%;  
@@ -63,16 +63,16 @@
 
 .Home-logout {
   margin-left: auto;
-  padding: 5px;
-  width: 15%;
+  padding: 0px;
+  width: 20%;
   font-size: medium;
   font-weight: 700;
-  border: 2px solid black;
+  border: 10px solid black round;
 }
 
 .Home-content{
   border: 3px solid #282c34;
-  padding: 20px;
+  padding: 10px 20px;
   overflow: auto;
   width: 90%;
   margin: auto;
@@ -83,7 +83,7 @@
 
 .Home-selected-friend {
   border: 2px solid #282c34;
-  padding: 10px;
+  padding: 5px 10px;
   overflow: auto;
   text-align: left;
   margin: 10px 0px 10px 0px;
@@ -91,7 +91,7 @@
 }
 
 .Home-message-box {
-  padding: 10px;
+  padding: 5px 10px;
   border: 1px solid black;
   margin: 10px;
   background-color: white;
@@ -104,7 +104,7 @@
 }
 
 .Message-left {
-  padding: 10px;
+  padding: 5px 10px;
   border: 2px solid black;
   width: fit-content;
   min-width: 10%;
@@ -116,7 +116,7 @@
 }
 
 .Message-right {
-  padding: 10px;
+  padding: 5px 10px;
   border: 2px solid black;
   width: fit-content;
   min-width: 10%;
@@ -142,12 +142,12 @@
 }
 
 .Message-send-box {
-  padding: 10px;
+  padding: 5px 10px;
   display: flex;
 }
 
 .Message-input {
-  padding: 12px 10px;
+  padding: 10px 10px;
   border: 3px solid cornflowerblue;
   border-radius: 4px;
   overflow: hidden;

@@ -92,12 +92,12 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <div className="Home-header">
-        <h1 >Welcome to Blockchain Messenger</h1>
+        <h1 className="Home-header-override" >Welcome to Blockchain Messenger</h1>
       </div>
       {user != null ? (
         <div>
           <div className="Home-user-container">
-            <h1 className="Home-details">Logged in user: {user.username}</h1>
+            <h2 className="Home-details">Logged in user: {user.username}</h2>
             <button className="Home-logout" onClick={logoutUser}>Logout</button>
           </div>
           <div className="Home-content">
