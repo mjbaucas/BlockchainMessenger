@@ -38,8 +38,7 @@ def login_user():
         try:
             if private_chain.search_user(data['username'], data['password']):    
                 session['username'] = data['username']
-                session['password'] = data['password']
-                return {'status': 200}
+                session['password'] = data['password']                return {'status': 200}
             else:
                 return {'status': 401}
         except:
