@@ -1,4 +1,4 @@
-package com.example.blockchainmobilemessenger;
+package com.example.mobile;
 
 import org.junit.Test;
 

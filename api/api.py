@@ -25,7 +25,7 @@ private_chain.gen_next_block("temp", entries)
 def check_user():
     if 'username' in session:
         if session['username'] and private_chain.search_user(session['username'], session['password']):
-            return {'username': session['username'], 'response': 200}
+            return {'username': session['username'], 'status': 200}
         else:
             return {'status': 500}
     else:
@@ -38,7 +38,8 @@ def login_user():
         try:
             if private_chain.search_user(data['username'], data['password']):    
                 session['username'] = data['username']
-                session['password'] = data['password']                return {'status': 200}
+                session['password'] = data['password']                
+                return {'username': session['username'], 'status': 200}
             else:
                 return {'status': 401}
         except:

@@ -1,11 +1,13 @@
-package com.example.blockchainmobilemessenger;
+package com.example.mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void run(){
                 new CheckSession().execute();
             }
-        }, 0, 10000);
+        }, 0, 5000);
 
         // Set a click listener for the login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -104,14 +106,26 @@ public class MainActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         public void run() {
                             Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-                        }
+                            try {
+                                JSONObject jsonObj = new JSONObject(response.toString());
+                                //Log.d("tag", jsonObj.toString(4));
+                                Integer response = (Integer) jsonObj.get("status");
+                                if (response == 200 && jsonObj.has("username")){
+                                    startActivity(new Intent(MainActivity.this, HomeActivity.class).putExtra("username", jsonObj.getString("username")));
+                                } else {
+                                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                                }
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            }
+                       }
                     });
                 }
             } catch (Exception e) {
                 e.printStackTrace();
                 handler.post( new Runnable(){
                     public void run(){
-                        Toast.makeText(MainActivity.this, "ran into error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Login: Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -151,8 +165,21 @@ public class MainActivity extends AppCompatActivity {
 
                     handler.post( new Runnable(){
                         public void run(){
-                            Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(MainActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                            try {
+                                JSONObject jsonObj = new JSONObject(response.toString());
+                                //Log.d("tag", jsonObj.toString(4));
+                                Integer response = (Integer) jsonObj.get("status");
+                                if (response == 200 && jsonObj.has("username")){
+                                    Toast.makeText(MainActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(MainActivity.this, HomeActivity.class).putExtra("username", jsonObj.getString("username")));
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Login Unsuccessful.", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                                }
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
                     });
 
@@ -161,7 +188,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 handler.post( new Runnable(){
                     public void run(){
-                        Toast.makeText(MainActivity.this, "Login Unuccessful.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Login Unuccessful.", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
