@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
                     handler.post(new Runnable() {
                         public void run() {
-                            Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                             try {
                                 JSONObject jsonObj = new JSONObject(response.toString());
                                 //Log.d("tag", jsonObj.toString(4));
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 handler.post( new Runnable(){
                     public void run(){
-                        Toast.makeText(MainActivity.this, "Login: Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Ran into an error checking session.", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -171,10 +171,10 @@ public class MainActivity extends AppCompatActivity {
                                 //Log.d("tag", jsonObj.toString(4));
                                 Integer response = (Integer) jsonObj.get("status");
                                 if (response == 200 && jsonObj.has("username")){
-                                    Toast.makeText(MainActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Login successful.", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(MainActivity.this, HomeActivity.class).putExtra("username", jsonObj.getString("username")));
                                 } else {
-                                    Toast.makeText(MainActivity.this, "Login Unsuccessful.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Login unsuccessful.", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(MainActivity.this, MainActivity.class));
                                 }
                             } catch (JSONException e) {
@@ -188,8 +188,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 handler.post( new Runnable(){
                     public void run(){
-                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(MainActivity.this, "Login Unuccessful.", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Ran into an error logging in.", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

@@ -110,6 +110,7 @@ def send_message():
         if 'username' in session and private_chain.search_user(session['username'], session['password']):
             if data['from'] == session['username']:
                 try:
+                    print(data)
                     # Temporary code for adding messages
                     dt = datetime.datetime.now(timezone.utc) 
                     message = {"type":"message", "from": data['from'], "to": data['to'], "message": data['message'], "timestamp": dt.replace(tzinfo=timezone.utc).timestamp()}
